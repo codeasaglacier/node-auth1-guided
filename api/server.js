@@ -3,6 +3,8 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 const usersRouter = require("../users/users-router.js");
+//9) import authRouter
+const authRouter = require( "../auth/router" )
 
 const server = express();
 
@@ -11,6 +13,8 @@ server.use(express.json());
 server.use(cors());
 
 server.use("/api/users", usersRouter);
+//10) assign route to authRouter and test ( go to auth/router )
+server.use("/api/auth", authRouter)
 
 server.get("/", (req, res) => {
   res.json({ api: "up" });

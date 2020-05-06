@@ -21,8 +21,10 @@ async function add(user) {
   return findById(id);
 }
 
+//8) select id username and password ( go to server )
 function findById(id) {
   return db("users")
     .where({ id })
+    .select( "id", "username", "password" )
     .first();
 }
